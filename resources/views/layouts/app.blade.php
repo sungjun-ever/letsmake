@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <title>Document</title>
+    <title>@yield('title', 'PORT')</title>
 </head>
 <body>
     <header class="max-w-7xl mx-auto py-2 shadow-md">

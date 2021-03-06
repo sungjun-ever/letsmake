@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $task->title)
 
 @section('content')
     <div class="max-w-7xl mx-auto mt-24">
@@ -22,8 +23,6 @@
                 </form>
 
             </div>
-            @else
-                <div></div>
             @endif
             @endauth
         </div>
