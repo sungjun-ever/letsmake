@@ -31,24 +31,44 @@
 
                 </div>
             </nav>
+
             <div class="flex-1 text-center">
+                @guest()
+                <a href="{{route('users.login')}}">
                 <button class="hover:text-gray-400 focus:outline-none">
                     <span>로그인</span>
                 </button>
+                </a>
                 <span class="px-1"></span>
+                <a href="{{route('users.register')}}">
                 <button class="hover:text-gray-400 focus:outline-none">
                     <span>회원가입</span>
                 </button>
+                </a>
+                @endguest
+                @auth()
+                    <button class="hover:text-gray-400 focus:outline-none">
+                        <span>{{auth()->user()->name}}</span>
+                    </button>
+                    <span class="px-1"></span>
+                    <form class="inline-block" action="{{route('users.logout')}}" method="post">
+                        @csrf
+                        <button class="hover:text-gray-400 focus:outline-none">
+                            <span>로그아웃</span>
+                        </button>
+                    </form>
+                @endauth
             </div>
         </div>
-
     </header>
+
     <section class="max-w-7xl mx-auto">
     @section('content')
     @show
     </section>
+
     <footer class="max-w-7xl mx-auto mt-24">
-        <div>
+        <div class="max-w-5xl mx-auto">
             copyright
         </div>
     </footer>

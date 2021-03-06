@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FreeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,12 @@ use App\Http\Controllers\FreeController;
 
 Route::get('/', HomeController::class)->name('home');
 
+Route::prefix('/users')->group(function(){
+    Route::get('/register', [UserController::class, 'registerIndex'])->name('users.register');
+    Route::post('/register', [UserController::class, 'register']);
+    Route::get('/login', [UserController::class, 'loginIndex'])->name('users.login');
+    Route::post('/login', [UserController::class, 'login']);
+    Route::post('/logout', [UserController::class, 'logout'])->name('users.logout');
+});
 
 Route::resource('frees', FreeController::class);

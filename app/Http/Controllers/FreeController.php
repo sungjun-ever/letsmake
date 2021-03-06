@@ -10,7 +10,8 @@ class FreeController extends Controller
 
     public function index()
     {
-        return view('frees.index');
+        $tasks = Free::orderBy('id', 'desc')->get();
+        return view('frees.index', compact('tasks'));
     }
 
     public function create()
@@ -25,35 +26,26 @@ class FreeController extends Controller
             'story'=>'required'
         ]);
 
-        dd($validation);
-
         $task = new Free();
+        $task->user_id = auth()->user()->id;
+        $task->user_name = auth()->user()->name;
         $task->title = $validation['title'];
         $task->story = $validation['story'];
         $task->save();
-        return redirect('frees.index');
+        return redirect()->route('frees.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $task = Free::where('id', $id)->first();
+        return view('frees.show', compact('task'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $task = Free::where('id', $id)->first();
+        return view('frees.edit', compact('task'));
     }
 
     /**
@@ -61,21 +53,27 @@ class FreeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+           'title'=>'required|max:20',
+           'story'=>'required'
+        ]);
+
+        $task = Free::where('id', $id)->first();
+        $task->title = $validation['title'];
+        $task->story = $validation['story'];
+        $task->save();
+
+        return redirect()->route('frees.show', $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $task = Free::where('id', $id)->first();
+        $task->delete();
+
+        return redirect()->route('frees.index');
     }
 }
