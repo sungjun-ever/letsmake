@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Free;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FreeController extends Controller
 {
 
     public function index()
     {
-        $tasks = Free::orderBy('id', 'desc')->get();
+        $tasks = Free::orderBy('id', 'desc')->paginate(10);
+//        $tasks->withPath('free');
         return view('frees.index', compact('tasks'));
     }
 
@@ -75,5 +77,13 @@ class FreeController extends Controller
         $task->delete();
 
         return redirect()->route('frees.index');
+    }
+
+    public function search(Request $request){
+        $word = $request->search;
+        $searches = Free::where('title', 'LIKE', '%'.$word.'%')->orderby('id', 'desc')->paginate(10);
+//        $searches = Free::search($word)->paginate(10);
+
+        return view('frees.search', compact(['searches', 'word']));
     }
 }

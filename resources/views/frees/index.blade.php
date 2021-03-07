@@ -5,7 +5,7 @@
         <div class="max-w-7xl xl:max-w-5xl mx-auto mt-20 text-right">
             <a href="{{route('frees.create')}}"><span><i class="xi-pen pr-1"></i>글쓰기</span></a>
         </div>
-        <div class="max-w-7xl xl:max-w-5xl h-screen mx-auto mt-6">
+        <div class="max-w-7xl xl:max-w-5xl mx-auto mt-6">
             <table class="w-full">
                 <tr>
                     <td class="w-2/12"></td>
@@ -22,6 +22,20 @@
                 </tr>
             @endforeach
             </table>
+        </div>
+        <div class="max-w-7xl lg:max-w-5xl mx-auto mt-8 text-center">
+            <form action="{{route('frees.search')}}" method="get">
+                @csrf
+                <label for="search" class="inline-block pr-1"><i class="xi-search"></i></label>
+                <input id="search" type="search" name="search"
+                    class="border outline-none rounded-md">
+                <button type="submit" class="bg-blue-400 hover:bg-blue-700 px-2 rounded-md">
+                    <span class="text-sm text-gray-100">검색</span>
+                </button>
+            </form>
+        </div>
+        <div class="max-w-7xl xl:max-w-5xl mx-auto mt-20">
+            {{$tasks->links()}}
         </div>
     </div>
 @stop

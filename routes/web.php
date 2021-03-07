@@ -27,3 +27,6 @@ Route::prefix('/users')->group(function(){
 });
 
 Route::resource('frees', FreeController::class);
+Route::get('/search', [FreeController::class, 'search'])->name('frees.search');
+
+
