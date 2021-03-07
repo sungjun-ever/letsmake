@@ -81,7 +81,6 @@ class FreeController extends Controller
 
     public function search(Request $request){
         $word = $request->search;
-//        $searches = Free::where('title', 'LIKE', '%'.$word.'%')->orderby('id', 'desc')->paginate(10);
         $searches = Free::search($word)->paginate(10);
 
         return view('frees.search', compact(['searches', 'word']));
