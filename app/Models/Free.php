@@ -16,8 +16,17 @@ class Free extends Model
 
     public function searchableAs()
     {
-        return 'frees_index';
+        return 'frees';
     }
 
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'story' => $this->story,
+            'created_at' => $this->created_at,
+        ];
+    }
 
 }
