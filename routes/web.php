@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FreeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/users')->group(function(){
     Route::get('/register', [UserController::class, 'registerIndex'])->name('users.register');
@@ -27,6 +28,11 @@ Route::prefix('/users')->group(function(){
 });
 
 Route::resource('frees', FreeController::class);
-Route::get('/free/search', [FreeController::class, 'search'])->name('frees.search');
+Route::resource('frees.comments', CommentController::class);
+Route::resource('comments', CommentController::class);
+Route::get('/frees/search', [FreeController::class, 'search'])->name('frees.search');
+
+
+
 
 

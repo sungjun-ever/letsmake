@@ -14,7 +14,7 @@
                     <td class="w-2/12"></td>
                 </tr>
             @foreach($tasks as $task)
-                <tr class="border-t">
+                <tr class="border-b">
                     <td class="text-center py-1">{{$task->id}}</td>
                     <td class="text-left"><a href="{{route('frees.show', $task->id)}}">{{$task->title}}</a></td>
                     <td class="text-center">{{$task->user_name}}</td>

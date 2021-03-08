@@ -47,9 +47,11 @@
                 </a>
                 @endguest
                 @auth()
+                    <a href="#">
                     <button class="hover:text-gray-400 focus:outline-none">
                         <span>{{auth()->user()->name}}</span>
                     </button>
+                    </a>
                     <span class="px-1"></span>
                     <form class="inline-block" action="{{route('users.logout')}}" method="post">
                         @csrf

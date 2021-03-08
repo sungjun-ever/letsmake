@@ -14,7 +14,7 @@
                     <td class="w-2/12"></td>
                 </tr>
                 @foreach($searches as $search)
-                    <tr class="border-t">
+                    <tr class="border-b">
                         <td class="text-center py-1">{{$search->id}}</td>
                         <td class="text-left"><a href="{{route('frees.show', $search->id)}}">{{$search->title}}</a></td>
                         <td class="text-center">{{$search->user_name}}</td>
@@ -22,6 +22,17 @@
                     </tr>
                 @endforeach
             </table>
+        </div>
+        <div class="max-w-7xl lg:max-w-5xl mx-auto mt-8 text-center">
+            <form action="{{route('frees.search')}}" method="get">
+                @csrf
+                <label for="search" class="inline-block pr-1"><i class="xi-search"></i></label>
+                <input id="search" type="search" name="search"
+                       class="border outline-none rounded-md">
+                <button type="submit" class="bg-blue-400 hover:bg-blue-700 px-2 rounded-md">
+                    <span class="text-sm text-gray-100">검색</span>
+                </button>
+            </form>
         </div>
         <div class="max-w-7xl xl:max-w-5xl mx-auto mt-20">
             {{$searches->appends('search', $word)->links()}}

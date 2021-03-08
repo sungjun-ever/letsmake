@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Free;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,8 +40,9 @@ class FreeController extends Controller
 
     public function show($id)
     {
+        $comments = Comment::where('free_id', $id)->get();
         $task = Free::where('id', $id)->first();
-        return view('frees.show', compact('task'));
+        return view('frees.show', compact(['task', 'comments']));
     }
 
 
