@@ -34,13 +34,13 @@
 
             <div class="flex-1 text-center">
                 @guest()
-                <a href="{{route('users.login')}}">
+                <a href="{{route('auth.login')}}">
                 <button class="hover:text-gray-400 focus:outline-none">
                     <span>로그인</span>
                 </button>
                 </a>
                 <span class="px-1"></span>
-                <a href="{{route('users.register')}}">
+                <a href="{{route('auth.register')}}">
                 <button class="hover:text-gray-400 focus:outline-none">
                     <span>회원가입</span>
                 </button>
@@ -49,11 +49,11 @@
                 @auth()
                     <a href="#">
                     <button class="hover:text-gray-400 focus:outline-none">
-                        <span>{{auth()->user()->name}}</span>
+                        <a href="{{route('dashboard.index')}}"><span>{{auth()->user()->name}}</span></a>
                     </button>
                     </a>
                     <span class="px-1"></span>
-                    <form class="inline-block" action="{{route('users.logout')}}" method="post">
+                    <form class="inline-block" action="{{route('auth.logout')}}" method="post">
                         @csrf
                         <button class="hover:text-gray-400 focus:outline-none">
                             <span>로그아웃</span>

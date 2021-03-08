@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FreeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DashBoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,18 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::prefix('/users')->group(function(){
-    Route::get('/register', [UserController::class, 'registerIndex'])->name('users.register');
+Route::prefix('/auth')->group(function(){
+    Route::get('/register', [UserController::class, 'registerIndex'])->name('auth.register');
     Route::post('/register', [UserController::class, 'register']);
-    Route::get('/login', [UserController::class, 'loginIndex'])->name('users.login');
+    Route::get('/login', [UserController::class, 'loginIndex'])->name('auth.login');
     Route::post('/login', [UserController::class, 'login']);
-    Route::post('/logout', [UserController::class, 'logout'])->name('users.logout');
+    Route::post('/logout', [UserController::class, 'logout'])->name('auth.logout');
+});
+
+Route::prefix('/dashboard')->group(function(){
+    Route::get('/userInfo', [DashBoardController::class, 'index'])->name('dashboard.index');
+    Route::get('/userTasks', [DashBoardController::class, 'userTasks'])->name('dashboard.task');
+    Route::get('/userComments', [DashBoardController::class, 'userComments'])->name('dashboard.comment');
 });
 
 Route::resource('frees', FreeController::class);
