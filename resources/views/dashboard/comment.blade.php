@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex max-w-7xl lg:max-w-5xl h-screen mx-auto shadow-md">
+    <div class="flex max-w-7xl lg:max-w-5xl h-screen mx-auto shadow-md mt-8 border-t">
         <div class="flex-initial w-1/3">
             <div class="flex flex-col h-screen justify-center items-center border-r">
                 <a href="{{route('dashboard.index')}}"
@@ -19,13 +19,13 @@
             </div>
         </div>
         <div class="flex-1 w-2/3">
-            <div class="flex mx-auto h-screen w-1/2 justify-center items-center">
-                <div class="text-sm">
-                    <p class="mt-4">이름 : {{$user->name}}</p>
-                    <p class="mt-4">이메일 : {{$user->email}}</p>
-                    <p class="mt-4">가입 날짜 : {{$user->created_at}}</p>
-                </div>
-            </div>
+{{--            <div class="flex mx-auto h-screen w-1/2 justify-center items-center">--}}
+{{--                <div class="text-sm">--}}
+{{--                    <p class="mt-4">이름 : {{$user->name}}</p>--}}
+{{--                    <p class="mt-4">이메일 : {{$user->email}}</p>--}}
+{{--                    <p class="mt-4">가입 날짜 : {{$user->created_at}}</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 @stop
