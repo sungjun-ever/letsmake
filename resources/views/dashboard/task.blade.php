@@ -21,9 +21,9 @@
         <div class="flex-1 w-2/3">
             <div class="flex flex-col w-full h-screen justify-center items-center">
                 @foreach($tasks as $task)
-                    <div class="w-full border-b pb-1">
+                    <div class="w-full border-b py-1">
                         <a href="{{route('frees.show', $task->id)}}">
-                            <span class="w-8/12 inline-block pl-10">{{$task->title}}</span>
+                            <span class="w-8/12 inline-block pl-10 overflow-hidden overflow-ellipsis whitespace-nowrap">{{$task->title}}</span>
                         </a>
                         <span class="w-3/12 inline-block text-right">{{$task->created_at->format('Y-m-d')}}</span>
                     </div>

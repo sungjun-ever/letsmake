@@ -18,14 +18,14 @@ class DashBoardController extends Controller
 
     public function userTasks(){
         $id = auth()->user()->id;
-        $tasks = Free::where('user_id', $id)->paginate(10);
+        $tasks = Free::where('user_id', $id)->orderBy('id', 'desc')->paginate(10);
         return view('dashboard.task', compact('tasks'));
     }
 
     public function userComments()
     {
         $id = auth()->user()->id;
-        $comments = Comment::where('user_id', $id)->paginate(10);
+        $comments = Comment::where('user_id', $id)->orderBy('id', 'desc')->paginate(10);
         return view('dashboard.comment', compact('comments'));
     }
 }

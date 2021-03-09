@@ -25,7 +25,7 @@ class FreeController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'title'=>'required|max:20',
+            'title'=>'required|max:30',
             'story'=>'required'
         ]);
 
@@ -76,6 +76,10 @@ class FreeController extends Controller
     public function destroy($id)
     {
         $task = Free::where('id', $id)->first();
+        $comment = Comment::where('free_id', $task->id);
+        if($comment != NULL) {
+            $comment->delete();
+        }
         $task->delete();
 
         return redirect()->route('frees.index');

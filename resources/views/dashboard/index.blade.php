@@ -23,7 +23,7 @@
                 <div class="text-sm">
                     <p class="mt-4">이름 : {{$user->name}}</p>
                     <p class="mt-4">이메일 : {{$user->email}}</p>
-                    <p class="mt-4">가입 날짜 : {{$user->created_at}}</p>
+                    <p class="mt-4">가입 날짜 : {{$user->created_at->format('Y-m-d')}}</p>
                 </div>
             </div>
         </div>

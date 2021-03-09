@@ -16,7 +16,7 @@
                 @foreach($searches as $search)
                     <tr class="border-b">
                         <td class="text-center py-1">{{$search->id}}</td>
-                        <td class="text-left"><a href="{{route('frees.show', $search->id)}}">{{$search->title}}</a></td>
+                        <td class="text-left overflow-ellipsis"><a href="{{route('frees.show', $search->id)}}">{{$search->title}}</a></td>
                         <td class="text-center">{{$search->user_name}}</td>
                         <td class="text-center">{{$search->created_at->format('Y-m-d')}}</td>
                     </tr>

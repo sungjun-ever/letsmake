@@ -3,7 +3,7 @@
 @section('content')
     <div class="max-w-7xl mx-auto mt-20">
         <div class="max-w-xl mx-auto">
-            <form class="p-4 shadow-md" action="/users/login" method="post">
+            <form class="p-4 shadow-md" action="/auth/login" method="post">
                 @csrf
                 <p>
                     <label for="email" class="inline-block w-1/5">이메일</label>

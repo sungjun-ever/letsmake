@@ -46,7 +46,7 @@ class UserController extends Controller
         if(Auth::attempt($validation)){
             return redirect()->route('home');
         } else {
-            return redirect()->route('users.loginIndex');
+            return redirect()->route('auth.login');
         }
     }
 

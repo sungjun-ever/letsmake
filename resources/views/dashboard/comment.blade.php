@@ -19,13 +19,19 @@
             </div>
         </div>
         <div class="flex-1 w-2/3">
-{{--            <div class="flex mx-auto h-screen w-1/2 justify-center items-center">--}}
-{{--                <div class="text-sm">--}}
-{{--                    <p class="mt-4">이름 : {{$user->name}}</p>--}}
-{{--                    <p class="mt-4">이메일 : {{$user->email}}</p>--}}
-{{--                    <p class="mt-4">가입 날짜 : {{$user->created_at}}</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="flex flex-col w-full h-screen justify-center items-center">
+                @foreach($comments as $comment)
+                    <div class="w-full border-b py-1">
+                        <a href="{{route('frees.show', $comment->free_id)}}">
+                            <span class="w-8/12 inline-block pl-10 overflow-hidden overflow-ellipsis whitespace-nowrap">{{$comment->story}}</span>
+                        </a>
+                        <span class="w-3/12 inline-block text-right">{{$comment->created_at->format('Y-m-d')}}</span>
+                    </div>
+                @endforeach
+                <div class="pt-12">
+                    {{$comments->appends('userComments')->links()}}
+                </div>
+            </div>
         </div>
     </div>
 @stop

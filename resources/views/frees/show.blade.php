@@ -4,7 +4,7 @@
 @section('content')
     <div class="max-w-7xl mx-auto mt-24">
         <div class="max-w-5xl mx-auto">
-            <p class="border-b-2 border-blue-400 py-1 text-xl font-semibold">{{$task->title}}</p>
+            <p class="border-b-2 border-blue-400 py-1 text-xl font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap">{{$task->title}}</p>
             <div class="mt-8 h-screen">{{$task->story}}</div>
             @auth()
             @if(auth()->user()->id == $task->user_id)
