@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title', 'PORT')</title>
 </head>
 <body>
@@ -22,9 +22,11 @@
                         <span>자유게시판</span>
                     </button>
                     </a>
+                    <a href="{{route('photos.index')}}">
                     <button class="hover:text-gray-400 focus:outline-none">
-                        <span>자유게시판</span>
+                        <span>사진게시판</span>
                     </button>
+                    </a>
                     <button class="hover:text-gray-400 focus:outline-none">
                         <span>자유게시판</span>
                     </button>
