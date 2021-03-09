@@ -12,7 +12,8 @@ class PhotoController extends Controller
 
     public function index()
     {
-        return view('photos.index');
+        $photos = Photo::orderBy('id', 'desc')->paginate(10);
+        return view('photos.index', compact('photos'));
     }
 
 
@@ -27,7 +28,7 @@ class PhotoController extends Controller
         $validation = $request->validate([
            'title' => 'required|max:30',
            'story' => 'required',
-           'image' => 'file|mimes:jpg, bmp, png',
+           'image' => 'file|mimes:jpeg ,jpg, bmp, png',
         ]);
 
         $photo = new Photo();

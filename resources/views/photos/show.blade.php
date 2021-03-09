@@ -8,7 +8,9 @@
             <div class="mt-8 h-screen">
                 {{$photo->story}}
                 @if($photo->imageName)
-                <img src="{{asset('images/'.$photo->imageName)}}" alt="{{$photo->imageName}}">
+                    <div class="flex justify-center mt-2">
+                        <img src="{{asset('images/'.$photo->imageName)}}" alt="{{$photo->imageName}}">
+                    </div>
                 @endif
             </div>
             @auth()
