@@ -27,10 +27,11 @@
                         <span>사진게시판</span>
                     </button>
                     </a>
+                    <a href="{{route('qnas.index')}}">
                     <button class="hover:text-gray-400 focus:outline-none">
-                        <span>자유게시판</span>
+                        <span>QnA</span>
                     </button>
-
+                    </a>
                 </div>
             </nav>
 

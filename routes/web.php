@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\QnaController;
+use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,11 +43,15 @@ Route::prefix('/dashboard')->group(function(){
 Route::resource('frees', FreeController::class);
 Route::resource('frees.comments', CommentController::class);
 Route::resource('comments', CommentController::class);
-Route::get('/frees/search', [FreeController::class, 'search'])->name('frees.search');
+Route::get('/free/search', [FreeController::class, 'search'])->name('frees.search');
 
 
 Route::resource('photos', PhotoController::class);
+Route::get('/photo/search', [PhotoController::class, 'search'])->name('photos.search');
 
+Route::resource('qnas', QnaController::class);
+Route::get('qnas/{qna}/reply', [ReplyController::class, 'reply'])->name('qnas.reply');
+Route::post('qnas/{qna}', [ReplyController::class, 'replyStore'])->name('qnas.replyStore');
 
 
 

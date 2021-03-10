@@ -90,4 +90,10 @@ class PhotoController extends Controller
         Storage::delete('public/images/'.$photo->imageName);
         return redirect()->route('photos.index');
     }
+
+    public function search(Request $request){
+        $word = $request->search;
+        $searches = Photo::search($word)->paginate(8);
+        return view('photos.search', compact(['searches', 'word']));
+    }
 }

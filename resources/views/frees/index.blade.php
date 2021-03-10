@@ -29,7 +29,7 @@
                 @csrf
                 <label for="search" class="inline-block pr-1"><i class="xi-search"></i></label>
                 <input id="search" type="search" name="search"
-                    class="border outline-none rounded-md">
+                    class="border outline-none rounded-md pl-1">
                 <button type="submit" class="bg-blue-400 hover:bg-blue-700 px-2 rounded-md">
                     <span class="text-sm text-gray-100">검색</span>
                 </button>
