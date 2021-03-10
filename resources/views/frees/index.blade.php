@@ -9,7 +9,7 @@
             <table class="w-full table-fixed">
                 <tr>
                     <td class="w-2/12"></td>
-                    <td class="w-7/12 ..."></td>
+                    <td class="w-7/12"></td>
                     <td class="w-1/12"></td>
                     <td class="w-2/12"></td>
                 </tr>

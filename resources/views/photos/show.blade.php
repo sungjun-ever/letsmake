@@ -16,12 +16,12 @@
             @auth()
                 @if(auth()->user()->id == $photo->user_id)
                     <div class="mt-6 text-right">
-                        <a href="{{route('frees.edit', $photo->id)}}">
+                        <a href="{{route('photos.edit', $photo->id)}}">
                             <i class="xi-pen-o pr-4 hover:text-blue-400 cursor-pointer">
                                 <button>수정</button>
                             </i>
                         </a>
-                        <form class="inline-block" action="{{route('frees.destroy', $photo->id)}}" method="post">
+                        <form class="inline-block" action="{{route('photos.destroy', $photo->id)}}" method="post">
                             @csrf
                             @method('delete')
                             <i class="xi-cut hover:text-blue-400 cursor-pointer">
